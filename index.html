@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre los mejores productos ergonómicos para tu oficina. Trabaja más cómodo, reduce el dolor y mejora tu postura con nuestras recomendaciones.">
+    <title>Ergonomía Pro | Mejora tu postura, trabaja mejor</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/" class="logo">
+                    <span class="logo-icon">💺</span>
+                    <span class="logo-text">Ergonomía Pro</span>
+                </a>
+                <button class="nav-toggle" aria-label="Menú" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="categorias/general.html">Ergonomía General</a></li>
+                    <li><a href="categorias/espalda.html">Espalda</a></li>
+                    <li><a href="categorias/programadores.html">Programadores</a></li>
+                    <li><a href="categorias/minimalista.html">Minimalista</a></li>
+                    <li><a href="articulos/">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Mejora tu postura.<br>Trabaja mejor.<br>Vive con menos dolor.</h1>
+                <p class="hero-subtitle">Descubre los mejores productos ergonómicos para tu oficina en casa. Recomendaciones probadas, comparativas honestas y guías prácticas.</p>
+                <div class="hero-cta">
+                    <a href="#categorias" class="btn btn-primary">Ver productos</a>
+                    <a href="articulos/guia-completa-escritorio.html" class="btn btn-secondary">Guía de inicio</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-placeholder">🖥️</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorías Destacadas -->
+    <section class="categories" id="categorias">
+        <div class="container">
+            <h2 class="section-title">Encuentra lo que necesitas</h2>
+            <div class="categories-grid">
+                <!-- Ergonomía General -->
+                <a href="categorias/general.html" class="category-card">
+                    <div class="category-icon">🏢</div>
+                    <h3>Ergonomía General</h3>
+                    <p>Reposapiés, soportes de monitor, lámparas y todo lo esencial para tu escritorio.</p>
+                    <span class="category-link">Ver productos →</span>
+                </a>
+
+                <!-- Espalda -->
+                <a href="categorias/espalda.html" class="category-card">
+                    <div class="category-icon">🪑</div>
+                    <h3>Ergonomía para la Espalda</h3>
+                    <p>Cojines lumbares, sillas ergonómicas y accesorios para cuidar tu espalda.</p>
+                    <span class="category-link">Ver productos →</span>
+                </a>
+
+                <!-- Programadores -->
+                <a href="categorias/programadores.html" class="category-card">
+                    <div class="category-icon">⌨️</div>
+                    <h3>Para Programadores</h3>
+                    <p>Teclados ergonómicos, ratones verticales y soportes para largas sesiones de código.</p>
+                    <span class="category-link">Ver productos →</span>
+                </a>
+
+                <!-- Minimalista -->
+                <a href="categorias/minimalista.html" class="category-card">
+                    <div class="category-icon">✨</div>
+                    <h3>Setup Minimalista</h3>
+                    <p>Organizadores, accesorios "invisibles" y soluciones para un escritorio limpio.</p>
+                    <span class="category-link">Ver productos →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Productos más valorados</h2>
+            <div class="products-grid" id="featuredProducts">
+                <!-- Los productos se cargarán dinámicamente con JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Artículos Recientes -->
+    <section class="latest-articles">
+        <div class="container">
+            <h2 class="section-title">Últimas guías y comparativas</h2>
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-image">📦</div>
+                    <div class="article-content">
+                        <span class="article-category">Comparativa</span>
+                        <h3>Los 10 mejores reposapiés para oficina en casa</h3>
+                        <p>Análisis detallado de los mejores reposapiés del mercado para mejorar tu postura.</p>
+                        <a href="articulos/mejores-reposapies.html" class="article-link">Leer más →</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">🪑</div>
+                    <div class="article-content">
+                        <span class="article-category">Guía de compra</span>
+                        <h3>Cómo elegir una silla ergonómica sin gastar de más</h3>
+                        <p>Todo lo que necesitas saber antes de comprar tu silla ergonómica.</p>
+                        <a href="articulos/como-elegir-silla-ergonomica.html" class="article-link">Leer más →</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">⌨️</div>
+                    <div class="article-content">
+                        <span class="article-category">Comparativa</span>
+                        <h3>Top teclados ergonómicos para programadores</h3>
+                        <p>Los mejores teclados para largas sesiones de programación sin dolor de muñecas.</p>
+                        <a href="articulos/teclados-ergonomicos-programadores.html" class="article-link">Leer más →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Recibe las mejores recomendaciones</h2>
+                <p>Un email semanal con las mejores ofertas y consejos de ergonomía. Sin spam.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="tu@email.com" required aria-label="Tu email">
+                    <button type="submit" class="btn btn-primary">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-icon">💺</span>
+                    <span class="logo-text">Ergonomía Pro</span>
+                    <p>Tu guía para trabajar más cómodo y saludable.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Categorías</h4>
+                    <ul>
+                        <li><a href="categorias/general.html">Ergonomía General</a></li>
+                        <li><a href="categorias/espalda.html">Espalda</a></li>
+                        <li><a href="categorias/programadores.html">Programadores</a></li>
+                        <li><a href="categorias/minimalista.html">Minimalista</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Información</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre nosotros</a></li>
+                        <li><a href="afiliados.html">Política de afiliados</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ergonomía Pro. Contiene enlaces de afiliado.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

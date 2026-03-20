@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Equipamiento ergonómico para programadores: teclados split, ratones verticales, soportes.">
+    <title>Ergonomía para Programadores | Ergonomía Pro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .category-header {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        .category-header h1 { font-size: 2.25rem; margin-bottom: 1rem; }
+        .category-header p { font-size: 1.125rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        .subcategories { padding: 2rem 0; background-color: #f9fafb; border-bottom: 1px solid #e5e7eb; }
+        .subcategories-list { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .subcategory-btn {
+            padding: 0.5rem 1.5rem;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 150ms ease;
+        }
+        .subcategory-btn:hover, .subcategory-btn.active {
+            background-color: #7c3aed;
+            color: white;
+            border-color: #7c3aed;
+        }
+        .category-products { padding: 5rem 0; }
+        .dev-tips {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: white;
+            padding: 5rem 0;
+        }
+        .dev-tips h2 { color: white; }
+        .tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .tip-card {
+            background: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .tip-card h3 { font-size: 1.125rem; margin-bottom: 0.75rem; color: #a78bfa; }
+        .tip-card p { color: #d1d5db; font-size: 0.875rem; }
+        @media (max-width: 768px) { .tips-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">💺</span>
+                    <span class="logo-text">Ergonomía Pro</span>
+                </a>
+                <button class="nav-toggle" aria-label="Menú" id="navToggle">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="general.html">General</a></li>
+                    <li><a href="espalda.html">Espalda</a></li>
+                    <li><a href="programadores.html" class="active">Programadores</a></li>
+                    <li><a href="minimalista.html">Minimalista</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="category-header">
+        <div class="container">
+            <h1>Ergonomía para Programadores</h1>
+            <p>Equipamiento especializado para largas sesiones de código. Protege tus muñecas, espalda y vista.</p>
+        </div>
+    </div>
+
+    <div class="subcategories">
+        <div class="container">
+            <div class="subcategories-list">
+                <button class="subcategory-btn active" data-filter="all">Todos</button>
+                <button class="subcategory-btn" data-filter="teclados">Teclados</button>
+                <button class="subcategory-btn" data-filter="ratones">Ratones</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="category-products">
+        <div class="container">
+            <div class="products-grid" id="categoryProducts"></div>
+        </div>
+    </section>
+
+    <section class="dev-tips">
+        <div class="container">
+            <h2 class="section-title">Consejos para programadores</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3>Regla del 90°</h3>
+                    <p>Mantén codos, muñecas y rodillas a 90 grados. Los antebrazos paralelos al suelo.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>Regla 20-20-20</h3>
+                    <p>Cada 20 minutos, mira algo a 20 pies durante 20 segundos. Reduce fatiga visual.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>Levantate cada hora</h3>
+                    <p>Usa Pomodoro (25+5) para forzar descansos. Tu espalda te lo agradecera.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-icon">💺</span>
+                    <span class="logo-text">Ergonomía Pro</span>
+                </div>
+                <div class="footer-links">
+                    <h4>Categorías</h4>
+                    <ul>
+                        <li><a href="general.html">General</a></li>
+                        <li><a href="espalda.html">Espalda</a></li>
+                        <li><a href="programadores.html">Programadores</a></li>
+                        <li><a href="minimalista.html">Minimalista</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ergonomía Pro. Contiene enlaces de afiliado.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        const productEmojis = { 'teclados': '⌨️', 'ratones': '🖱️' };
+        
+        fetch('../data/products.json')
+            .then(r => r.json())
+            .then(data => {
+                const products = data.products.filter(p => p.category === 'programadores');
+                document.getElementById('categoryProducts').innerHTML = products.map(p => `
+                    <article class="product-card" data-subcategory="${p.subcategory}">
+                        <div class="product-image">${productEmojis[p.subcategory] || '💻'}</div>
+                        <div class="product-content">
+                            <span class="product-category">${p.subcategory}</span>
+                            <h3>${p.name}</h3>
+                            <p class="product-description">${p.description}</p>
+                            <div class="product-meta">
+                                <span class="product-price">${p.price} ${p.currency}</span>
+                                <a href="${p.affiliateLinks.amazon || '#'}" class="btn btn-primary product-button" target="_blank" rel="noopener sponsored">Ver oferta</a>
+                            </div>
+                        </div>
+                    </article>
+                `).join('');
+            });
+
+        document.querySelectorAll('.subcategory-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.subcategory-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.product-card').forEach(card => {
+                    card.style.display = (filter === 'all' || card.dataset.subcategory === filter) ? '' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+{
+  "products": [
+    {
+      "id": "reposapies-1",
+      "name": "Reposapiés Ergonómico Ajustable HUANUO",
+      "category": "general",
+      "subcategory": "reposapies",
+      "description": "Reposapiés ajustable en altura e inclinación con textura masaje. Mejora la circulación y reduce la presión en las piernas.",
+      "pros": [
+        "Ajustable en altura (10-17cm)",
+        "Superficie texturizada masaje",
+        "Ángulo de inclinación ajustable",
+        "Base antideslizante"
+      ],
+      "cons": [
+        "Plástico algo rígido al principio",
+        "No tiene función de calor"
+      ],
+      "price": "29.99",
+      "currency": "EUR",
+      "affiliateLinks": {
+        "amazon": "https://amazon.es/dp/EXAMPLE1",
+        "aliexpress": "https://aliexpress.com/item/EXAMPLE1"
+      },
+      "idealFor": ["oficina", "trabajo-casa", "piernas-cansadas"],
+      "rating": 4.5,
+      "reviews": 2847
+    },
+    {
+      "id": "silla-1",
+      "name": "SIHOO M57 Silla Ergonómica de Oficina",
+      "category": "espalda",
+      "subcategory": "sillas",
+      "description": "Silla ergonómica con soporte lumbar dinámico, reposabrazos 3D ajustables y malla transpirable. Ideal para largas jornadas de trabajo.",
+      "pros": [
+        "Soporte lumbar ajustable dinámicamente",
+        "Reposabrazos 3D (altura, profundidad, ángulo)",
+        "Malla transpirable de alta calidad",
+        "Reposacabezas ajustable",
+        "Excelente relación calidad-precio"
+      ],
+      "cons": [
+        "Montaje puede llevar 30-45 minutos",
+        "Para usuarios hasta 100kg",
+        "Reposacabezas no es desmontable"
+      ],
+      "price": "189.99",
+      "currency": "EUR",
+      "affiliateLinks": {
+        "amazon": "https://amazon.es/dp/EXAMPLE2",
+        "pccomponentes": "https://pccomponentes.com/silla-sihoo-m57"
+      },
+      "idealFor": ["programadores", "oficina", "dolor-espalda", "largas-jornadas"],
+      "rating": 4.7,
+      "reviews": 15234
+    },
+    {
+      "id": "cojin-lumbar-1",
+      "name": "Cojín Lumbar Ergonómico Dreamer Car",
+      "category": "espalda",
+      "subcategory": "cojines-lumbares",
+      "description": "Cojín lumbar de espuma viscoelástica con funda lavable. Diseño ortopédico que se adapta a la curva natural de la espalda.",
+      "pros": [
+        "Espuma viscoelástica de alta densidad",
+        "Diseño ergonómico probado",
+        "Funda transpirable y lavable",
+        "Correas ajustables para cualquier silla",
+        "Portátil - úsalo en coche, oficina, casa"
+      ],
+      "cons": [
+        "Puede ser demasiado firme los primeros días",
+        "Tamaño estándar, no XL"
+      ],
+      "price": "24.95",
+      "currency": "EUR",
+      "affiliateLinks": {
+        "amazon": "https://amazon.es/dp/EXAMPLE3"
+      },
+      "idealFor": ["dolor-espalda", "oficina", "coche", "silla-rigida"],
+      "rating": 4.4,
+      "reviews": 8932
+    },
+    {
+      "id": "teclado-1",
+      "name": "Logitech ERGO K860 Teclado Ergonómico Split",
+      "category": "programadores",
+      "subcategory": "teclados",
+      "description": "Teclado inalámbrico ergonómico con diseño split curvo y reposamanos integrado. Reduce la tensión en muñecas y antebrazos.",
+      "pros": [
+        "Diseño split curvo natural",
+        "Reposamanos acolchado integrado",
+        "Teclas de perfil bajo silenciosas",
+        "Conectividad multi-dispositivo (Bluetooth/USB)",
+        "Batería de 2 años"
+      ],
+      "cons": [
+        "Precio elevado",
+        "Curva de aprendizaje de 1-2 semanas",
+        "No es mecánico"
+      ],
+      "price": "119.00",
+      "currency": "EUR",
+      "affiliateLinks": {
+        "amazon": "https://amazon.es/dp/EXAMPLE4",
+        "pccomponentes": "https://pccomponentes.com/teclado-logitech-k860"
+      },
+      "idealFor": ["programadores", "tunel-carpiano", "dolor-muneca", "escritura-larga"],
+      "rating": 4.6,
+      "reviews": 5621
+    },
+    {
+      "id": "raton-1",
+      "name": "Logitech MX Vertical Mouse Ergonómico",
+      "category": "programadores",
+      "subcategory": "ratones",
+      "description": "Ratón vertical con ángulo de 57° que reduce la presión en la muñeca. Sensor de alta precisión y botones personalizables.",
+      "pros": [
+        "Ángulo vertical de 57° ergonómico",
+        "Reduce tensión muscular un 10%",
+        "Sensor de alta precisión 4000 DPI",
+        "Carga USB-C rápida",
+        "Botones personalizables con Logi Options+"
+      ],
+      "cons": [
+        "Adaptación necesaria (unos días)",
+        "No ideal para gaming",
+        "Precio premium"
+      ],
+      "price": "89.99",
+      "currency": "EUR",
+      "affiliateLinks": {
+        "amazon": "https://amazon.es/dp/EXAMPLE5",
+        "pccomponentes": "https://pccomponentes.com/raton-logitech-mx-vertical"
+      },
+      "idealFor": ["programadores", "dolor-muneca", "tunel-carpiano", "diseñadores"],
+      "rating": 4.5,
+      "reviews": 12145
+    },
+    {
+      "id": "soporte-monitor-1",
+      "name": "Soporte Monitor Ajustable BONTEC",
+      "category": "general",
+      "subcategory": "soportes-monitor",
+      "description": "Soporte de monitor con altura ajustable y bandeja para teclado. Compatible con monitores hasta 32 pulgadas.",
+      "pros": [
+        "Altura ajustable 9-30cm",
+        "Bandeja para teclado integrada",
+        "Soporta hasta 20kg",
+        "Base metálica estable",
+        "Fácil montaje sin herramientas"
+      ],
+      "cons": [
+        "Ocupa espacio en el escritorio",
+        "Bandeja de teclado no extraíble"
+      ],
+      "price": "34.99",
+      "currency": "EUR",
+      "affiliateLinks": {
+        "amazon": "https://amazon.es/dp/EXAMPLE6"
+      },
+      "idealFor": ["oficina", "postura-cuello", "espacio-limitado"],
+      "rating": 4.3,
+      "reviews": 4532
+    },
+    {
+      "id": "organizador-cables-1",
+      "name": "Kit Organizador de Cables Básico",
+      "category": "minimalista",
+      "subcategory": "organizadores",
+      "description": "Set completo para organizar cables: canaletas adhesivas, bridas reutilizables, clips de sujeción y fundas negras.",
+      "pros": [
+        "Todo incluido en un kit",
+        "Fácil instalación sin taladros",
+        "Canaletas de varios tamaños",
+        "Bridas reutilizables",
+        "Mejora estética del escritorio"
+      ],
+      "cons": [
+        "Adhesivo puede perder fuerza con calor",
+        "Cantidad limitada para setups grandes"
+      ],
+      "price": "15.99",
+      "currency": "EUR",
+      "affiliateLinks": {
+        "amazon": "https://amazon.es/dp/EXAMPLE7",
+        "aliexpress": "https://aliexpress.com/item/EXAMPLE7"
+      },
+      "idealFor": ["setup-limpio", "minimalismo", "escritorio-ordenado"],
+      "rating": 4.4,
+      "reviews": 3214
+    },
+    {
+      "id": "lampara-1",
+      "name": "Lámpara de Escritorio LED TaoTronics",
+      "category": "general",
+      "subcategory": "lamparas",
+      "description": "Lámpara LED con 5 modos de color, 7 niveles de brillo, puerto USB de carga y temporizador. Protección ocular integrada.",
+      "pros": [
+        "5 temperaturas de color",
+        "7 niveles de brillo",
+        "Puerto USB 5V/1A integrado",
+        "Temporizador auto-apagado",
+        "Brazo ajustable 360°",
+        "Sin parpadeo ni deslumbramiento"
+      ],
+      "cons": [
+        "No tiene batería (siempre enchufada)",
+        "Base algo grande"
+      ],
+      "price": "32.99",
+      "currency": "EUR",
+      "affiliateLinks": {
+        "amazon": "https://amazon.es/dp/EXAMPLE8"
+      },
+      "idealFor": ["oficina", "estudio", "lectura", "proteccion-ocular"],
+      "rating": 4.6,
+      "reviews": 18765
+    }
+  ]
+}
