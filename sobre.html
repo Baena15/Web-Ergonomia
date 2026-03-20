@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre quién está detrás de Ergonomía Pro. Nuestra misión es ayudarte a trabajar más cómodo y saludable.">
+    <title>Sobre Nosotros | Ergonomía Pro</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .page-header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+        .about-section {
+            margin-bottom: 3rem;
+        }
+        .about-section h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+        .about-section p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            background: #f9fafb;
+            border-radius: 1rem;
+        }
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .value-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+        .value-card p {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin: 0;
+        }
+        .contact-box {
+            background: #eff6ff;
+            border: 2px solid #2563eb;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .contact-box h3 {
+            color: #1d4ed8;
+            margin-bottom: 1rem;
+        }
+        @media (max-width: 768px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="./index.html" class="logo">
+                    <span class="logo-icon">💺</span>
+                    <span class="logo-text">Ergonomía Pro</span>
+                </a>
+                <button class="nav-toggle" aria-label="Menú" id="navToggle">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="./categorias/general.html">General</a></li>
+                    <li><a href="./categorias/espalda.html">Espalda</a></li>
+                    <li><a href="./categorias/programadores.html">Programadores</a></li>
+                    <li><a href="./categorias/minimalista.html">Minimalista</a></li>
+                    <li><a href="./articulos/">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Sobre Ergonomía Pro</h1>
+            <p>Ayudando a profesionales a trabajar más cómodos, sanos y productivos desde 2026.</p>
+        </div>
+    </div>
+
+    <main class="about-content">
+        <section class="about-section">
+            <h2>Nuestra Historia</h2>
+            <p>
+                Ergonomía Pro nació de una necesidad personal. Después de años trabajando frente a 
+                una pantalla, empecé a sufrir dolores de espalda, muñecas tensas y fatiga visual. 
+                Como programador, pasaba 10-12 horas diarias sentado, y mi cuerpo empezaba a resentirlo.
+            </p>
+            <p>
+                Probé decenas de productos: desde reposapiés baratos hasta sillas ergonómicas de 
+                1000€. Aprendí que no hace falta gastar una fortuna para mejorar significativamente 
+                la salud en el trabajo. Solo hace falta saber qué comprar y por qué.
+            </p>
+            <p>
+                En 2026 decidí compartir todo ese conocimiento. Este sitio es el resultado: 
+                una guía práctica, honesta y basada en evidencia para todos los que trabajamos 
+                sentados y queremos cuidar nuestro cuerpo sin arruinarnos.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h2>Nuestra Misión</h2>
+            <p>
+                Democratizar la ergonomía de calidad. Creemos que todos merecen trabajar en 
+                condiciones saludables, no solo quienes pueden permitirse setups de 5000€. 
+                Analizamos productos de todas las gamas de precio para encontrar los que realmente 
+                funcionan, sin marketing engañoso.
+            </p>
+        </section>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🔍</div>
+                <h3>Honestidad</h3>
+                <p>Si un producto es malo, lo decimos. Sin importar si tiene comisión de afiliado.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🧪</div>
+                <h3>Evidencia</h3>
+                <p>Nuestras recomendaciones se basan en estudios ergonómicos, no en modas.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">💰</div>
+                <h3>Accesibilidad</h3>
+                <p>Buscamos opciones para todos los presupuestos, desde 20€ hasta 200€+.</p>
+            </div>
+        </div>
+
+        <section class="about-section">
+            <h2>Cómo Trabajamos</h2>
+            <p>
+                <strong>Análisis real:</strong> Cuando es posible, probamos personalmente los productos 
+                durante semanas antes de recomendarlos. Cuando no, analizamos cientos de opiniones 
+                de usuarios verificados y consultamos con expertos (fisioterapeutas, ergonomistas).
+            </p>
+            <p>
+                <strong>Transparencia total:</strong> Este sitio se financia mediante enlaces de afiliado. 
+                Si compras algo a través de nuestros enlaces, recibimos una pequeña comisión sin coste 
+                adicional para ti. Esto no influye en nuestras valoraciones: recomendamos lo que 
+                realmente funciona, sea de Amazon, AliExpress o cualquier otra tienda.
+            </p>
+            <p>
+                <strong>Actualización constante:</strong> El mercado cambia rápido. Revisamos nuestros 
+                artículos cada 3-6 meses para asegurar que la información siga siendo relevante y 
+                los enlaces funcionen.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h2>¿A quién va dirigido?</h2>
+            <ul style="font-size: 1.125rem; line-height: 2; color: #374151; margin-left: 1.5rem;">
+                <li><strong>Programadores y desarrolladores</strong> que pasan horas tecleando</li>
+                <li><strong>Freelancers</strong> que trabajan desde casa</li>
+                <li><strong>Oficinistas</strong> con dolores de espalda o muñecas</li>
+                <li><strong>Estudiantes</strong> que pasan largas horas estudiando</li>
+                <li><strong>Cualquiera</strong> que quiera trabajar más cómodo y saludable</li>
+            </ul>
+        </section>
+
+        <div class="contact-box">
+            <h3>📧 ¿Hablamos?</h3>
+            <p>
+                ¿Tienes sugerencias, dudas sobre qué producto elegir, o quieres proponer un tema?
+                <br>Escríbenos a: <strong>hola@ergonomiapro.com</strong>
+            </p>
+            <p style="font-size: 0.875rem; color: #6b7280; margin-top: 1rem;">
+                (Sí, respondemos todos los emails, aunque a veces tarde un par de días)
+            </p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-icon">💺</span>
+                    <span class="logo-text">Ergonomía Pro</span>
+                    <p>Tu guía para trabajar más cómodo y saludable.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Categorías</h4>
+                    <ul>
+                        <li><a href="./categorias/general.html">General</a></li>
+                        <li><a href="./categorias/espalda.html">Espalda</a></li>
+                        <li><a href="./categorias/programadores.html">Programadores</a></li>
+                        <li><a href="./categorias/minimalista.html">Minimalista</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Información</h4>
+                    <ul>
+                        <li><a href="./sobre.html">Sobre nosotros</a></li>
+                        <li><a href="./afiliados.html">Política de afiliados</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ergonomía Pro. Contiene enlaces de afiliado.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
