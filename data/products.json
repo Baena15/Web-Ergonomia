@@ -19,7 +19,7 @@
       "price": "29.99",
       "currency": "EUR",
       "affiliateLinks": {
-        "amazon": "https://www.amazon.es/dp/B07XYZ123?tag=baena15-21",
+        "amazon": "https://www.amazon.es/s?k=HUANUO+reposapies+ajustable&tag=baena15-21",
         "aliexpress": "https://aliexpress.com/item/EXAMPLE1"
       },
       "idealFor": ["oficina", "trabajo-casa", "piernas-cansadas"],
@@ -47,7 +47,7 @@
       "price": "189.99",
       "currency": "EUR",
       "affiliateLinks": {
-        "amazon": "https://www.amazon.es/dp/B08EXAMPLE2?tag=baena15-21",
+        "amazon": "https://www.amazon.es/s?k=SIHOO+M57+silla+ergonomica&tag=baena15-21",
         "pccomponentes": "https://pccomponentes.com/silla-sihoo-m57"
       },
       "idealFor": ["programadores", "oficina", "dolor-espalda", "largas-jornadas"],
@@ -74,7 +74,7 @@
       "price": "24.95",
       "currency": "EUR",
       "affiliateLinks": {
-        "amazon": "https://www.amazon.es/dp/B07XYZ789?tag=baena15-21"
+        "amazon": "https://www.amazon.es/s?k=cojin+lumbar+ergonomico+espuma+viscoelastica&tag=baena15-21"
       },
       "idealFor": ["dolor-espalda", "oficina", "coche", "silla-rigida"],
       "rating": 4.4,
@@ -101,7 +101,7 @@
       "price": "119.00",
       "currency": "EUR",
       "affiliateLinks": {
-        "amazon": "https://www.amazon.es/dp/B083FWP1P5?tag=baena15-21",
+        "amazon": "https://www.amazon.es/s?k=Logitech+ERGO+K860+teclado+ergonomico&tag=baena15-21",
         "pccomponentes": "https://pccomponentes.com/teclado-logitech-k860"
       },
       "idealFor": ["programadores", "tunel-carpiano", "dolor-muneca", "escritura-larga"],
@@ -129,7 +129,7 @@
       "price": "89.99",
       "currency": "EUR",
       "affiliateLinks": {
-        "amazon": "https://www.amazon.es/dp/B07D6TMQ5C?tag=baena15-21",
+        "amazon": "https://www.amazon.es/s?k=Logitech+MX+Vertical+raton&tag=baena15-21",
         "pccomponentes": "https://pccomponentes.com/raton-logitech-mx-vertical"
       },
       "idealFor": ["programadores", "dolor-muneca", "tunel-carpiano", "diseñadores"],
@@ -156,7 +156,7 @@
       "price": "34.99",
       "currency": "EUR",
       "affiliateLinks": {
-        "amazon": "https://www.amazon.es/dp/B08EXAMPLE6?tag=baena15-21"
+        "amazon": "https://www.amazon.es/s?k=BONTEC+soporte+monitor+ajustable&tag=baena15-21"
       },
       "idealFor": ["oficina", "postura-cuello", "espacio-limitado"],
       "rating": 4.3,
@@ -182,7 +182,7 @@
       "price": "15.99",
       "currency": "EUR",
       "affiliateLinks": {
-        "amazon": "https://www.amazon.es/dp/B07XYZ999?tag=baena15-21",
+        "amazon": "https://www.amazon.es/s?k=organizador+cables+escritorio+kit&tag=baena15-21",
         "aliexpress": "https://aliexpress.com/item/EXAMPLE7"
       },
       "idealFor": ["setup-limpio", "minimalismo", "escritorio-ordenado"],
@@ -210,7 +210,7 @@
       "price": "32.99",
       "currency": "EUR",
       "affiliateLinks": {
-        "amazon": "https://www.amazon.es/dp/B07XYZ888?tag=baena15-21"
+        "amazon": "https://www.amazon.es/s?k=TaoTronics+lampara+escritorio+LED&tag=baena15-21"
       },
       "idealFor": ["oficina", "estudio", "lectura", "proteccion-ocular"],
       "rating": 4.6,

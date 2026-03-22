@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descubre los mejores productos ergonómicos para tu oficina. Trabaja más cómodo, reduce el dolor y mejora tu postura con nuestras recomendaciones.">
     <title>Ergonomía Pro | Mejora tu postura, trabaja mejor</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/styles-dark.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -39,15 +39,26 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Mejora tu postura.<br>Trabaja mejor.<br>Vive con menos dolor.</h1>
-                <p class="hero-subtitle">Descubre los mejores productos ergonómicos para tu oficina en casa. Recomendaciones probadas, comparativas honestas y guías prácticas.</p>
+                <h1>Optimiza tu <span class="highlight-violet">setup</span>.<br>Codea mejor.<br><span class="code-tag">// Sin dolor</span></h1>
+                <p class="hero-subtitle">Guías técnicas, comparativas con productos reales y recomendaciones validadas por desarrolladores. Tu espalda te lo agradecerá.</p>
                 <div class="hero-cta">
-                    <a href="#categorias" class="btn btn-primary">Ver productos</a>
-                    <a href="articulos/guia-completa-escritorio.html" class="btn btn-secondary">Guía de inicio</a>
+                    <a href="articulos/mejores-sillas-ergonomicas-2026.html" class="btn btn-primary">Ver sillas ergonómicas</a>
+                    <a href="articulos/mejores-reposapies-oficina.html" class="btn btn-secondary">Guía reposapiés</a>
                 </div>
-            </div>
-            <div class="hero-image">
-                <div class="hero-placeholder">🖥️</div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Sillas testadas</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10</span>
+                        <span class="stat-label">Reposapiés analizados</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">0€</span>
+                        <span class="stat-label">Coste de envío Prime</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -103,38 +114,42 @@
     </section>
 
     <!-- Artículos Recientes -->
-    <section class="latest-articles">
+    <section class="articles">
         <div class="container">
-            <h2 class="section-title">Últimas guías y comparativas</h2>
+            <div class="section-header">
+                <span class="section-tag">📚 BLOG</span>
+                <h2 class="section-title">Últimas guías y comparativas</h2>
+                <p class="section-subtitle">Contenido técnico para optimizar tu setup y cuidar tu salud</p>
+            </div>
             <div class="articles-grid">
                 <article class="article-card">
-                    <div class="article-image">📦</div>
-                    <div class="article-content">
-                        <span class="article-category">Comparativa</span>
-                        <h3>Los 10 mejores reposapiés para oficina en casa</h3>
-                        <p>Análisis detallado de los mejores reposapiés del mercado para mejorar tu postura.</p>
-                        <a href="articulos/mejores-reposapies.html" class="article-link">Leer más →</a>
+                    <div class="article-meta">
+                        <span>🪑 Sillas</span>
+                        <span>15 min</span>
                     </div>
+                    <h3><a href="articulos/mejores-sillas-ergonomicas-2026.html">Las 5 Mejores Sillas Ergonómicas para Programadores 2026</a></h3>
+                    <p>Análisis de SIHOO B100, Yaheetech, SONGMICS y más. Comparativa completa con enlaces a productos reales.</p>
+                    <a href="articulos/mejores-sillas-ergonomicas-2026.html" class="read-more">Leer artículo</a>
                 </article>
 
                 <article class="article-card">
-                    <div class="article-image">🪑</div>
-                    <div class="article-content">
-                        <span class="article-category">Guía de compra</span>
-                        <h3>Cómo elegir una silla ergonómica sin gastar de más</h3>
-                        <p>Todo lo que necesitas saber antes de comprar tu silla ergonómica.</p>
-                        <a href="articulos/como-elegir-silla-ergonomica.html" class="article-link">Leer más →</a>
+                    <div class="article-meta">
+                        <span>📦 Reposapiés</span>
+                        <span>12 min</span>
                     </div>
+                    <h3><a href="articulos/mejores-reposapies-oficina.html">Los 10 Mejores Reposapiés para Oficina</a></h3>
+                    <p>Guía completa para mejorar tu circulación y postura. Comparativa de precios y características.</p>
+                    <a href="articulos/mejores-reposapies-oficina.html" class="read-more">Leer artículo</a>
                 </article>
 
                 <article class="article-card">
-                    <div class="article-image">⌨️</div>
-                    <div class="article-content">
-                        <span class="article-category">Comparativa</span>
-                        <h3>Top teclados ergonómicos para programadores</h3>
-                        <p>Los mejores teclados para largas sesiones de programación sin dolor de muñecas.</p>
-                        <a href="articulos/teclados-ergonomicos-programadores.html" class="article-link">Leer más →</a>
+                    <div class="article-meta">
+                        <span>⌨️ Periféricos</span>
+                        <span>10 min</span>
                     </div>
+                    <h3><a href="articulos/teclados-ergonomicos-programadores.html">Teclados Ergonómicos para Programadores</a></h3>
+                    <p>Reduce la tensión en muñecas con teclados split, verticales y de perfil bajo. Recomendaciones por presupuesto.</p>
+                    <a href="articulos/teclados-ergonomicos-programadores.html" class="read-more">Leer artículo</a>
                 </article>
             </div>
         </div>
