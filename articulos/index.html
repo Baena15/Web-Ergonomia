@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog de ergonomía para programadores. Guías, comparativas y consejos para mejorar tu setup y cuidar tu salud mientras trabajas.">
+    <title>Blog | Ergonomía Pro - Guías y Comparativas</title>
+    <link rel="stylesheet" href="../css/styles-dark.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">
+                    <span class="logo-icon">💺</span>
+                    <span class="logo-text">Ergonomía Pro</span>
+                </a>
+                <button class="nav-toggle" aria-label="Menú" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../categorias/general.html">Ergonomía General</a></li>
+                    <li><a href="../categorias/espalda.html">Espalda</a></li>
+                    <li><a href="../categorias/programadores.html">Programadores</a></li>
+                    <li><a href="../categorias/minimalista.html">Minimalista</a></li>
+                    <li><a href="./" class="active">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1><span class="highlight-violet">Blog</span> de Ergonomía</h1>
+                <p class="hero-subtitle">Guías técnicas, comparativas detalladas y consejos prácticos para optimizar tu espacio de trabajo y cuidar tu salud.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorías de Artículos -->
+    <section class="categories" style="padding: 3rem 0;">
+        <div class="container">
+            <div class="categories-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <a href="#sillas" class="category-card" style="text-align: center;">
+                    <div class="category-icon">🪑</div>
+                    <h3>Sillas</h3>
+                    <p>Análisis y comparativas</p>
+                </a>
+                <a href="#reposapies" class="category-card" style="text-align: center;">
+                    <div class="category-icon">🦶</div>
+                    <h3>Reposapiés</h3>
+                    <p>Comodidad para tus piernas</p>
+                </a>
+                <a href="#perifericos" class="category-card" style="text-align: center;">
+                    <div class="category-icon">⌨️</div>
+                    <h3>Periféricos</h3>
+                    <p>Teclados, ratones y más</p>
+                </a>
+                <a href="#postura" class="category-card" style="text-align: center;">
+                    <div class="category-icon">🧘</div>
+                    <h3>Postura</h3>
+                    <p>Consejos de salud</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lista de Artículos -->
+    <section class="articles" id="articulos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">📚 TODOS LOS ARTÍCULOS</span>
+                <h2 class="section-title">Últimas publicaciones</h2>
+            </div>
+
+            <div class="articles-grid">
+                <!-- Artículo 1: Sillas -->
+                <article class="article-card" id="sillas">
+                    <div class="article-meta">
+                        <span>🪑 Sillas</span>
+                        <span>15 min</span>
+                        <span>Marzo 2026</span>
+                    </div>
+                    <h3><a href="./mejores-sillas-ergonomicas-2026.html">Las 5 Mejores Sillas Ergonómicas para Programadores 2026</a></h3>
+                    <p>Análisis completo de SIHOO B100, Yaheetech, SONGMICS y más. Comparativa técnica con pros, contras y enlaces directos a los mejores precios.</p>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                        <span style="background: rgba(168, 85, 247, 0.1); color: var(--neon-violet); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem;">Sillas</span>
+                        <span style="background: rgba(6, 182, 212, 0.1); color: var(--neon-cyan); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem;">Comparativa</span>
+                        <span style="background: rgba(236, 72, 153, 0.1); color: var(--neon-pink); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem;">Top 5</span>
+                    </div>
+                    <a href="./mejores-sillas-ergonomicas-2026.html" class="read-more">Leer artículo</a>
+                </article>
+
+                <!-- Artículo 2: Reposapiés -->
+                <article class="article-card" id="reposapies">
+                    <div class="article-meta">
+                        <span>📦 Reposapiés</span>
+                        <span>12 min</span>
+                        <span>Marzo 2026</span>
+                    </div>
+                    <h3><a href="./mejores-reposapies-oficina.html">Los 10 Mejores Reposapiés para Oficina</a></h3>
+                    <p>Guía completa para mejorar tu circulación y postura. Análisis de 10 modelos con diferentes características y rangos de precio para todos los bolsillos.</p>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                        <span style="background: rgba(168, 85, 247, 0.1); color: var(--neon-violet); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem;">Reposapiés</span>
+                        <span style="background: rgba(6, 182, 212, 0.1); color: var(--neon-cyan); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem;">Guía de compra</span>
+                        <span style="background: rgba(236, 72, 153, 0.1); color: var(--neon-pink); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem;">Top 10</span>
+                    </div>
+                    <a href="./mejores-reposapies-oficina.html" class="read-more">Leer artículo</a>
+                </article>
+
+                <!-- Artículo 3: Teclados (Próximamente) -->
+                <article class="article-card" id="perifericos" style="opacity: 0.7;">
+                    <div class="article-meta">
+                        <span>⌨️ Periféricos</span>
+                        <span>Próximamente</span>
+                    </div>
+                    <h3>Teclados Ergonómicos para Programadores</h3>
+                    <p>Reduce la tensión en muñecas con teclados split, verticales y de perfil bajo. Recomendaciones por presupuesto y tipo de uso.</p>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                        <span style="background: rgba(168, 85, 247, 0.1); color: var(--neon-violet); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem;">Teclados</span>
+                        <span style="background: rgba(107, 114, 128, 0.2); color: var(--text-muted); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem;">En preparación</span>
+                    </div>
+                    <span style="color: var(--text-muted); font-size: 0.9rem;">🕐 Muy pronto...</span>
+                </article>
+
+                <!-- Artículo 4: Postura -->
+                <article class="article-card" id="postura">
+                    <div class="article-meta">
+                        <span>🧘 Salud</span>
+                        <span>20 min</span>
+                        <span>Marzo 2026</span>
+                    </div>
+                    <h3><a href="./postura-perfecta-programar.html">La Postura Perfecta para Programar: Guía Médica Completa</a></h3>
+                    <p>Aprende a posicionar tu cuerpo con recomendaciones de la OMS y Clínica Mayo. Evita dolores cervicales, lumbares y de muñeca. Incluye ejercicios y estiramientos.</p>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                        <span style="background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem;">Salud</span>
+                        <span style="background: rgba(239, 68, 68, 0.1); color: #ef4444; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem;">Medicina</span>
+                        <span style="background: rgba(168, 85, 247, 0.1); color: var(--neon-violet); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem;">Ejercicios</span>
+                    </div>
+                    <a href="./postura-perfecta-programar.html" class="read-more">Leer artículo</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-box">
+                <div class="newsletter-content">
+                    <h2>📧 No te pierdas ninguna guía</h2>
+                    <p>Recibe alertas cuando publiquemos nuevos artículos con análisis de productos y consejos de ergonomía.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="tu@email.com" required aria-label="Tu email">
+                        <button type="submit" class="btn btn-primary">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-icon">💺</span>
+                    <span class="logo-text">Ergonomía Pro</span>
+                    <p class="footer-about">Tu guía para trabajar más cómodo y saludable. Análisis técnicos sin bias de marca.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Categorías</h4>
+                    <ul>
+                        <li><a href="../categorias/general.html">Ergonomía General</a></li>
+                        <li><a href="../categorias/espalda.html">Espalda</a></li>
+                        <li><a href="../categorias/programadores.html">Programadores</a></li>
+                        <li><a href="../categorias/minimalista.html">Minimalista</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Blog</h4>
+                    <ul>
+                        <li><a href="./mejores-sillas-ergonomicas-2026.html">Mejores Sillas</a></li>
+                        <li><a href="./mejores-reposapies-oficina.html">Mejores Reposapiés</a></li>
+                        <li><a href="./">Todos los artículos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Información</h4>
+                    <ul>
+                        <li><a href="../sobre.html">Sobre nosotros</a></li>
+                        <li><a href="../afiliados.html">Política de afiliados</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ergonomía Pro. Contiene enlaces de afiliado.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
