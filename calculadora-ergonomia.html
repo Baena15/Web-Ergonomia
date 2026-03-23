@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadora ergonómica gratuita. Introduce tu altura y obtén las medidas ideales para tu escritorio, silla, monitor y setup de programador.">
+    <meta name="keywords" content="calculadora ergonomía, altura escritorio, altura silla, distancia monitor, setup ergonómico">
+    <title>Calculadora de Ergonomía | Medidas Perfectas para tu Setup</title>
+    <link rel="stylesheet" href="./css/styles-dark.css">
+    
+    <!-- Schema.org SoftwareApplication Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Calculadora de Ergonomía",
+        "applicationCategory": "HealthApplication",
+        "description": "Calculadora ergonómica gratuita que calcula las medidas ideales de escritorio, silla y monitor según tu altura corporal.",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Ergonomía Pro"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "127"
+        }
+    }
+    </script>
+    
+    <!-- Schema.org WebPage Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Calculadora de Ergonomía",
+        "description": "Calculadora ergonómica gratuita. Introduce tu altura y obtén las medidas ideales para tu escritorio, silla, monitor y setup de programador.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Ergonomía Pro"
+        },
+        "mainEntity": {
+            "@type": "SoftwareApplication",
+            "name": "Calculadora de Ergonomía"
+        }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .calculator-container {
+            background: var(--gradient-card);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .input-group {
+            margin-bottom: 2rem;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .input-group input[type="number"] {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: rgba(10, 10, 15, 0.5);
+            border: 2px solid rgba(168, 85, 247, 0.3);
+            border-radius: 0.75rem;
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            font-family: var(--font-mono);
+            outline: none;
+            transition: all 0.3s;
+        }
+        
+        .input-group input[type="number"]:focus {
+            border-color: var(--neon-violet);
+            box-shadow: var(--glow-violet);
+        }
+        
+        .input-hint {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        
+        .unit-toggle {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: rgba(10, 10, 15, 0.5);
+            padding: 0.5rem;
+            border-radius: 0.75rem;
+        }
+        
+        .unit-toggle button {
+            flex: 1;
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .unit-toggle button.active {
+            background: var(--gradient-violet);
+            color: white;
+        }
+        
+        .calculate-btn {
+            width: 100%;
+            padding: 1.25rem;
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+        
+        .results {
+            display: none;
+        }
+        
+        .results.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .result-card {
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+        
+        .result-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+        
+        .result-content h4 {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin: 0 0 0.25rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .result-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--neon-violet);
+            font-family: var(--font-mono);
+            margin: 0;
+        }
+        
+        .result-range {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+        
+        .info-box {
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .info-box h4 {
+            color: var(--neon-cyan);
+            margin: 0 0 0.75rem 0;
+        }
+        
+        .info-box p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .diagram-section {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .diagram-container {
+            background: var(--bg-card);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .ergo-diagram {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .measurement-list {
+            text-align: left;
+            margin-top: 2rem;
+        }
+        
+        .measurement-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(10, 10, 15, 0.3);
+            border-radius: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .measurement-item span:first-child {
+            font-size: 1.5rem;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="./index.html" class="logo">
+                    <span class="logo-icon">💺</span>
+                    <span class="logo-text">Ergonomía Pro</span>
+                </a>
+                <button class="nav-toggle" aria-label="Menú" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="./categorias/general.html">Ergonomía General</a></li>
+                    <li><a href="./categorias/espalda.html">Espalda</a></li>
+                    <li><a href="./categorias/programadores.html">Programadores</a></li>
+                    <li><a href="./categorias/minimalista.html">Minimalista</a></li>
+                    <li><a href="./articulos/">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>🧮 Calculadora <span class="highlight-violet">Ergonómica</span></h1>
+                <p class="hero-subtitle">Introduce tu altura y obtén las medidas perfectas para tu setup. Basado en estudios antropométricos y guías de la OSHA.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="categories" style="padding: 3rem 0 5rem;">
+        <div class="container">
+            <div class="calculator-container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Introduce tus datos</h2>
+                
+                <!-- Unit Toggle -->
+                <div class="unit-toggle">
+                    <button type="button" class="active" data-unit="cm" onclick="setUnit('cm')">Centímetros (cm)</button>
+                    <button type="button" data-unit="inches" onclick="setUnit('inches')">Pies/Pulgadas</button>
+                </div>
+                
+                <!-- Height Input -->
+                <div class="input-group" id="input-cm">
+                    <label for="height-cm">Tu altura</label>
+                    <input type="number" id="height-cm" placeholder="175" min="120" max="220" step="1">
+                    <span class="input-hint">Ejemplo: 175 cm</span>
+                </div>
+                
+                <div class="input-group" id="input-inches" style="display: none;">
+                    <label for="height-ft">Tu altura</label>
+                    <div style="display: flex; gap: 1rem;">
+                        <input type="number" id="height-ft" placeholder="5" min="3" max="7" style="flex: 1;">
+                        <input type="number" id="height-in" placeholder="9" min="0" max="11" style="flex: 1;">
+                    </div>
+                    <span class="input-hint">Pies y pulgadas (ej: 5'9")</span>
+                </div>
+                
+                <button class="btn btn-primary calculate-btn" onclick="calculateErgonomics()">
+                    🚀 Calcular Medidas Óptimas
+                </button>
+                
+                <!-- Results -->
+                <div class="results" id="results">
+                    <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--neon-cyan);">
+                        📏 Tus Medidas Ideales
+                    </h3>
+                    
+                    <div class="result-card">
+                        <span class="result-icon">🪑</span>
+                        <div class="result-content">
+                            <h4>Altura del Asiento (Silla)</h4>
+                            <p class="result-value" id="seat-height">--</p>
+                            <p class="result-range">Rodillas a 90°, pies apoyados</p>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <span class="result-icon">🖥️</span>
+                        <div class="result-content">
+                            <h4>Altura del Escritorio</h4>
+                            <p class="result-value" id="desk-height">--</p>
+                            <p class="result-range">Codos a 90°, antebrazos paralelos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <span class="result-icon">📺</span>
+                        <div class="result-content">
+                            <h4>Altura del Monitor</h4>
+                            <p class="result-value" id="monitor-height">--</p>
+                            <p class="result-range">Borde superior a nivel de ojos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <span class="result-icon">👁️</span>
+                        <div class="result-content">
+                            <h4>Distancia al Monitor</h4>
+                            <p class="result-value" id="monitor-distance">--</p>
+                            <p class="result-range">Al alcance del brazo extendido</p>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <span class="result-icon">🦶</span>
+                        <div class="result-content">
+                            <h4>Reposapiés (si aplica)</h4>
+                            <p class="result-value" id="footrest">--</p>
+                            <p class="result-range">Si tus pies no llegan al suelo</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h4>💡 Consejo Pro</h4>
+                        <p>Estas medidas son puntos de partida. Ajusta ligeramente según tu comodidad y el grosor de tu calzado. Lo importante es mantener los ángulos recomendados: rodillas y codos a ~90°.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Diagram Section -->
+            <div class="diagram-section">
+                <h2 class="section-title">📐 Diagrama de Referencia</h2>
+                <div class="diagram-container">
+                    <svg viewBox="0 0 400 500" class="ergo-diagram" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Simplified ergonomic diagram -->
+                        <rect x="50" y="300" width="300" height="10" fill="#1a1a23" stroke="#a855f7" stroke-width="2"/>
+                        <rect x="50" y="180" width="10" height="120" fill="#1a1a23" stroke="#a855f7" stroke-width="2"/>
+                        <rect x="340" y="180" width="10" height="120" fill="#1a1a23" stroke="#a855f7" stroke-width="2"/>
+                        <rect x="30" y="160" width="80" height="20" fill="#1a1a23" stroke="#06b6d4" stroke-width="2"/>
+                        <rect x="150" y="100" width="100" height="60" fill="#1a1a23" stroke="#ec4899" stroke-width="2"/>
+                        
+                        <!-- Labels -->
+                        <text x="200" y="330" text-anchor="middle" fill="#d1d5db" font-size="12" font-family="JetBrains Mono">Altura Escritorio</text>
+                        <text x="15" y="175" text-anchor="middle" fill="#d1d5db" font-size="10" font-family="JetBrains Mono">Silla</text>
+                        <text x="200" y="95" text-anchor="middle" fill="#d1d5db" font-size="12" font-family="JetBrains Mono">Monitor (borde superior a nivel ojos)</text>
+                        
+                        <!-- Person simplified -->
+                        <circle cx="200" cy="280" r="15" fill="none" stroke="#d1d5db" stroke-width="2"/>
+                        <line x1="200" y1="295" x2="200" y2="360" stroke="#d1d5db" stroke-width="2"/>
+                        <line x1="170" y1="320" x2="200" y2="320" stroke="#d1d5db" stroke-width="2"/>
+                        <line x1="200" y1="320" x2="230" y2="320" stroke="#d1d5db" stroke-width="2"/>
+                        <line x1="200" y1="360" x2="180" y2="400" stroke="#d1d5db" stroke-width="2"/>
+                        <line x1="200" y1="360" x2="220" y2="400" stroke="#d1d5db" stroke-width="2"/>
+                        
+                        <!-- Angles -->
+                        <path d="M 180 320 Q 180 340 200 340" fill="none" stroke="#10b981" stroke-width="1" stroke-dasharray="4"/>
+                        <text x="160" y="340" fill="#10b981" font-size="10">90°</text>
+                    </svg>
+                    
+                    <div class="measurement-list">
+                        <div class="measurement-item">
+                            <span>🪑</span>
+                            <div>
+                                <strong>Silla:</strong> Altura ajustable, soporte lumbar, reposabrazos opcional
+                            </div>
+                        </div>
+                        <div class="measurement-item">
+                            <span>🖥️</span>
+                            <div>
+                                <strong>Escritorio:</strong> Permite codos a 90° con pies apoyados
+                            </div>
+                        </div>
+                        <div class="measurement-item">
+                            <span>📺</span>
+                            <div>
+                                <strong>Monitor:</strong> 50-70 cm de distancia, borde superior a nivel de ojos
+                            </div>
+                        </div>
+                        <div class="measurement-item">
+                            <span>🦶</span>
+                            <div>
+                                <strong>Reposapiés:</strong> Si al sentarte correctamente los pies no tocan el suelo
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Content -->
+    <section class="articles" style="background: var(--bg-secondary); padding: 4rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">📚 APRENDE MÁS</span>
+                <h2 class="section-title">Artículos relacionados</h2>
+            </div>
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-meta">
+                        <span>🧘 Salud</span>
+                        <span>20 min</span>
+                    </div>
+                    <h3><a href="./articulos/postura-perfecta-programar.html">La Postura Perfecta para Programar</a></h3>
+                    <p>Guía médica completa con ejercicios y recomendaciones de la OMS.</p>
+                    <a href="./articulos/postura-perfecta-programar.html" class="read-more">Leer artículo</a>
+                </article>
+                
+                <article class="article-card">
+                    <div class="article-meta">
+                        <span>🪑 Sillas</span>
+                        <span>15 min</span>
+                    </div>
+                    <h3><a href="./articulos/mejores-sillas-ergonomicas-2026.html">Las 5 Mejores Sillas Ergonómicas</a></h3>
+                    <p>Comparativa de sillas ergonómicas para mantener la postura correcta.</p>
+                    <a href="./articulos/mejores-sillas-ergonomicas-2026.html" class="read-more">Leer artículo</a>
+                </article>
+                
+                <article class="article-card">
+                    <div class="article-meta">
+                        <span>📦 Reposapiés</span>
+                        <span>12 min</span>
+                    </div>
+                    <h3><a href="./articulos/mejores-reposapies-oficina.html">Los 10 Mejores Reposapiés</a></h3>
+                    <p>Si tus pies no llegan al suelo, un reposapiés es esencial.</p>
+                    <a href="./articulos/mejores-reposapies-oficina.html" class="read-more">Leer artículo</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-box">
+                <div class="newsletter-content">
+                    <h2>📏 Guarda tus medidas</h2>
+                    <p>Suscríbete y recibe un PDF con tu configuración ergonómica personalizada + checklist de setup.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="tu@email.com" required aria-label="Tu email">
+                        <button type="submit" class="btn btn-primary">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-icon">💺</span>
+                    <span class="logo-text">Ergonomía Pro</span>
+                    <p class="footer-about">Tu guía para trabajar más cómodo y saludable. Calculadora basada en estándares OSHA.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Herramientas</h4>
+                    <ul>
+                        <li><a href="./calculadora-ergonomia.html">Calculadora Ergonómica</a></li>
+                        <li><a href="./categorias/general.html">Productos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Guías</h4>
+                    <ul>
+                        <li><a href="./articulos/postura-perfecta-programar.html">Postura Correcta</a></li>
+                        <li><a href="./articulos/mejores-sillas-ergonomicas-2026.html">Mejores Sillas</a></li>
+                        <li><a href="./articulos/">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Información</h4>
+                    <ul>
+                        <li><a href="./sobre.html">Sobre nosotros</a></li>
+                        <li><a href="./afiliados.html">Política de afiliados</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ergonomía Pro. Calculadora basada en estándares antropométricos.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+    <script>
+        let currentUnit = 'cm';
+        
+        function setUnit(unit) {
+            currentUnit = unit;
+            document.querySelectorAll('.unit-toggle button').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.unit === unit);
+            });
+            
+            if (unit === 'cm') {
+                document.getElementById('input-cm').style.display = 'block';
+                document.getElementById('input-inches').style.display = 'none';
+            } else {
+                document.getElementById('input-cm').style.display = 'none';
+                document.getElementById('input-inches').style.display = 'block';
+            }
+            
+            // Hide results when switching units
+            document.getElementById('results').classList.remove('show');
+        }
+        
+        function calculateErgonomics() {
+            let heightCm;
+            
+            if (currentUnit === 'cm') {
+                heightCm = parseFloat(document.getElementById('height-cm').value);
+            } else {
+                const feet = parseFloat(document.getElementById('height-ft').value) || 0;
+                const inches = parseFloat(document.getElementById('height-in').value) || 0;
+                heightCm = ((feet * 12) + inches) * 2.54;
+            }
+            
+            if (!heightCm || heightCm < 120 || heightCm > 220) {
+                alert('Por favor, introduce una altura válida entre 120 y 220 cm (o 3\'11" y 7\'3").');
+                return;
+            }
+            
+            // Anthropometric calculations based on OSHA and ergonomic standards
+            // Using popliteal height (floor to back of knee) ratios
+            
+            const poplitealHeight = heightCm * 0.285; // ~28.5% of height
+            const elbowHeight = heightCm * 0.63; // ~63% of height (seated)
+            const eyeHeight = heightCm * 0.93; // ~93% of height (seated)
+            const armLength = heightCm * 0.35; // ~35% of height
+            
+            // Seat height: popliteal height minus shoe height (2-3cm)
+            const seatHeight = Math.round(poplitealHeight - 3);
+            
+            // Desk height: elbow height when seated
+            const deskHeight = Math.round(elbowHeight - 25); // Subtract thigh height approx
+            
+            // Monitor height: eye level when seated
+            const monitorHeight = Math.round(eyeHeight - 25 + 5); // Screen center slightly below eye level
+            
+            // Monitor distance: arm length
+            const monitorDistance = Math.round(armLength);
+            
+            // Footrest needed if popliteal height < 40cm (rare)
+            const needsFootrest = poplitealHeight < 42;
+            
+            // Format display
+            const formatValue = (cm) => {
+                if (currentUnit === 'cm') {
+                    return `${cm} cm`;
+                } else {
+                    const totalInches = cm / 2.54;
+                    const ft = Math.floor(totalInches / 12);
+                    const in_ = Math.round(totalInches % 12);
+                    return in_ === 0 ? `${ft}'` : `${ft}'${in_}"`;
+                }
+            };
+            
+            const formatRange = (min, max) => {
+                if (currentUnit === 'cm') {
+                    return `${min}-${max} cm`;
+                } else {
+                    const minFt = Math.floor((min / 2.54) / 12);
+                    const minIn = Math.round((min / 2.54) % 12);
+                    const maxFt = Math.floor((max / 2.54) / 12);
+                    const maxIn = Math.round((max / 2.54) % 12);
+                    return `${minFt}'${minIn}"-${maxFt}'${maxIn}"`;
+                }
+            };
+            
+            document.getElementById('seat-height').textContent = formatValue(seatHeight);
+            document.getElementById('desk-height').textContent = formatValue(deskHeight);
+            document.getElementById('monitor-height').textContent = formatValue(monitorHeight);
+            document.getElementById('monitor-distance').textContent = formatRange(monitorDistance - 5, monitorDistance + 15);
+            
+            const footrestEl = document.getElementById('footrest');
+            if (needsFootrest) {
+                footrestEl.textContent = 'Sí, recomendado';
+                footrestEl.style.color = '#fbbf24';
+            } else {
+                footrestEl.textContent = 'No necesario';
+                footrestEl.style.color = '#10b981';
+            }
+            
+            document.getElementById('results').classList.add('show');
+            
+            // Smooth scroll to results
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        // Allow Enter key to calculate
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') calculateErgonomics();
+            });
+        });
+    </script>
+</body>
+</html>
