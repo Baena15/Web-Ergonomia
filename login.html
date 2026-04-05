@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Inicia sesión en Ergonomía Pro para guardar tus productos favoritos y crear comparativas personalizadas.">
+    <title>Login | Ergonomía Pro</title>
+    <link rel="stylesheet" href="css/styles-dark.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💺</text></svg>">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-emoji">💺</span>
+                <span class="logo-text">Ergonomía Pro</span>
+            </a>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="categorias/general.html">Ergonomía General</a></li>
+                <li><a href="categorias/espalda.html">Espalda</a></li>
+                <li><a href="categorias/programadores.html">Programadores</a></li>
+                <li><a href="categorias/minimalista.html">Minimalista</a></li>
+                <li><a href="articulos/">Blog</a></li>
+                <li><a href="calculadora-ergonomia.html">🧮 Calculadora</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="auth-page">
+        <div class="auth-container">
+            <div class="auth-box">
+                <div class="auth-header">
+                    <span class="auth-icon">🔐</span>
+                    <h1>Iniciar Sesión</h1>
+                    <p>Accede a tu cuenta para guardar favoritos y crear comparativas</p>
+                </div>
+
+                <form id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="tu@email.com" 
+                            required
+                            autocomplete="email"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <div class="password-input-wrapper">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                placeholder="Tu contraseña" 
+                                required
+                                autocomplete="current-password"
+                            >
+                            <button type="button" class="toggle-password" id="togglePassword" aria-label="Mostrar contraseña">
+                                👁️
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="rememberMe" name="rememberMe">
+                            <span>Recordarme</span>
+                        </label>
+                        <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full" id="loginBtn">
+                        <span class="btn-text">Iniciar Sesión</span>
+                        <span class="btn-loading" style="display: none;">Cargando...</span>
+                    </button>
+                </form>
+
+                <div class="auth-divider">
+                    <span>o</span>
+                </div>
+
+                <div class="auth-footer">
+                    <p>¿No tienes cuenta? <a href="registro.html" class="auth-link">Crear cuenta</a></p>
+                </div>
+            </div>
+
+            <!-- Beneficios -->
+            <div class="auth-benefits">
+                <h3>✨ Beneficios de tu cuenta</h3>
+                <ul class="benefits-list">
+                    <li>
+                        <span class="benefit-icon">⭐</span>
+                        <div>
+                            <strong>Guarda favoritos</strong>
+                            <p>Crea tu lista de productos preferidos</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="benefit-icon">📊</span>
+                        <div>
+                            <strong>Comparativas personalizadas</strong>
+                            <p>Compara hasta 4 productos lado a lado</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="benefit-icon">🔔</span>
+                        <div>
+                            <strong>Alertas de precios</strong>
+                            <p>Recibe notificaciones cuando bajen de precio</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="benefit-icon">📱</span>
+                        <div>
+                            <strong>Sincronización</strong>
+                            <p>Accede desde cualquier dispositivo</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">💺</span>
+                    <span>Ergonomía Pro</span>
+                    <p>Tu guía para trabajar más cómodo y saludable.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Categorías</h4>
+                        <ul>
+                            <li><a href="categorias/general.html">Ergonomía General</a></li>
+                            <li><a href="categorias/espalda.html">Espalda</a></li>
+                            <li><a href="categorias/programadores.html">Programadores</a></li>
+                            <li><a href="categorias/minimalista.html">Minimalista</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Información</h4>
+                        <ul>
+                            <li><a href="sobre.html">Sobre nosotros</a></li>
+                            <li><a href="afiliados.html">Política de afiliados</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ergonomía Pro. Contiene enlaces de afiliado.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Toggle password visibility
+        document.getElementById('togglePassword')?.addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+
+        // Handle login form
+        document.getElementById('loginForm')?.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('loginBtn');
+            const btnText = btn.querySelector('.btn-text');
+            const btnLoading = btn.querySelector('.btn-loading');
+            
+            // Show loading state
+            btn.disabled = true;
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline';
+            
+            try {
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                const rememberMe = document.getElementById('rememberMe').checked;
+                
+                const result = await login(email, password);
+                
+                if (result.access_token) {
+                    // If remember me is checked, token is already saved in localStorage by login()
+                    // If not, we might want to use sessionStorage instead
+                    if (!rememberMe) {
+                        // Move from localStorage to sessionStorage
+                        const token = localStorage.getItem('authToken');
+                        localStorage.removeItem('authToken');
+                        sessionStorage.setItem('authToken', token);
+                    }
+                    
+                    showNotification('¡Bienvenido de vuelta!', 'success');
+                    
+                    // Redirect to home or previous page
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const redirect = urlParams.get('redirect') || '/';
+                    setTimeout(() => {
+                        window.location.href = redirect;
+                    }, 1500);
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                showNotification(error.message || 'Error al iniciar sesión. Verifica tus credenciales.', 'error');
+            } finally {
+                btn.disabled = false;
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+            }
+        });
+
+        // Check if already logged in
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+            if (token) {
+                // Optionally redirect to home if already logged in
+                // window.location.href = '/';
+            }
+        });
+    </script>
+</body>
+</html>

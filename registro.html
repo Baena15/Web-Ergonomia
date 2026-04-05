@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crea tu cuenta en Ergonomía Pro para guardar tus productos favoritos y crear comparativas personalizadas.">
+    <title>Crear Cuenta | Ergonomía Pro</title>
+    <link rel="stylesheet" href="css/styles-dark.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💺</text></svg>">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-emoji">💺</span>
+                <span class="logo-text">Ergonomía Pro</span>
+            </a>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="categorias/general.html">Ergonomía General</a></li>
+                <li><a href="categorias/espalda.html">Espalda</a></li>
+                <li><a href="categorias/programadores.html">Programadores</a></li>
+                <li><a href="categorias/minimalista.html">Minimalista</a></li>
+                <li><a href="articulos/">Blog</a></li>
+                <li><a href="calculadora-ergonomia.html">🧮 Calculadora</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="auth-page">
+        <div class="auth-container">
+            <div class="auth-box">
+                <div class="auth-header">
+                    <span class="auth-icon">📝</span>
+                    <h1>Crear Cuenta</h1>
+                    <p>Únete a Ergonomía Pro y empieza a optimizar tu espacio de trabajo</p>
+                </div>
+
+                <form id="registerForm" class="auth-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">Nombre</label>
+                            <input 
+                                type="text" 
+                                id="firstName" 
+                                name="first_name" 
+                                placeholder="Tu nombre" 
+                                required
+                                autocomplete="given-name"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Apellidos</label>
+                            <input 
+                                type="text" 
+                                id="lastName" 
+                                name="last_name" 
+                                placeholder="Tu apellido" 
+                                required
+                                autocomplete="family-name"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="tu@email.com" 
+                            required
+                            autocomplete="email"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <div class="password-input-wrapper">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                placeholder="Mínimo 8 caracteres" 
+                                required
+                                minlength="8"
+                                autocomplete="new-password"
+                            >
+                            <button type="button" class="toggle-password" id="togglePassword" aria-label="Mostrar contraseña">
+                                👁️
+                            </button>
+                        </div>
+                        <span class="password-hint">Debe tener al menos 8 caracteres</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar Contraseña</label>
+                        <input 
+                            type="password" 
+                            id="confirmPassword" 
+                            name="confirmPassword" 
+                            placeholder="Repite tu contraseña" 
+                            required
+                            autocomplete="new-password"
+                        >
+                        <span class="error-message" id="passwordError" style="display: none; color: var(--neon-pink);">Las contraseñas no coinciden</span>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="terms-checkbox">
+                            <input type="checkbox" id="acceptTerms" name="acceptTerms" required>
+                            <span>Acepto la <a href="politica-privacidad.html" target="_blank">política de privacidad</a> y los <a href="terminos.html" target="_blank">términos de uso</a></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full" id="registerBtn">
+                        <span class="btn-text">Crear Cuenta</span>
+                        <span class="btn-loading" style="display: none;">Creando cuenta...</span>
+                    </button>
+                </form>
+
+                <div class="auth-divider">
+                    <span>o</span>
+                </div>
+
+                <div class="auth-footer">
+                    <p>¿Ya tienes cuenta? <a href="login.html" class="auth-link">Iniciar sesión</a></p>
+                </div>
+            </div>
+
+            <!-- Beneficios -->
+            <div class="auth-benefits">
+                <h3>🚀 ¿Por qué unirte?</h3>
+                <ul class="benefits-list">
+                    <li>
+                        <span class="benefit-icon">💾</span>
+                        <div>
+                            <strong>Guarda tus favoritos</strong>
+                            <p>Nunca pierdas ese producto que te interesó</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="benefit-icon">⚖️</span>
+                        <div>
+                            <strong>Comparativas ilimitadas</strong>
+                            <p>Crea y guarda todas las comparativas que necesites</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="benefit-icon">💰</span>
+                        <div>
+                            <strong>Alertas de precios</strong>
+                            <p>Te avisamos cuando baje el precio de tus productos</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="benefit-icon">📧</span>
+                        <div>
+                            <strong>Newsletter exclusivo</strong>
+                            <p>Ofertas y consejos solo para miembros</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="testimonial">
+                    <blockquote>
+                        "Gracias a las comparativas de Ergonomía Pro encontré la silla perfecta. ¡Mi espalda me lo agradece!"
+                    </blockquote>
+                    <cite>— Carlos M., Programador</cite>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">💺</span>
+                    <span>Ergonomía Pro</span>
+                    <p>Tu guía para trabajar más cómodo y saludable.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Categorías</h4>
+                        <ul>
+                            <li><a href="categorias/general.html">Ergonomía General</a></li>
+                            <li><a href="categorias/espalda.html">Espalda</a></li>
+                            <li><a href="categorias/programadores.html">Programadores</a></li>
+                            <li><a href="categorias/minimalista.html">Minimalista</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Información</h4>
+                        <ul>
+                            <li><a href="sobre.html">Sobre nosotros</a></li>
+                            <li><a href="afiliados.html">Política de afiliados</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ergonomía Pro. Contiene enlaces de afiliado.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Toggle password visibility
+        document.getElementById('togglePassword')?.addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+
+        // Password confirmation validation
+        document.getElementById('confirmPassword')?.addEventListener('input', function() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = this.value;
+            const errorElement = document.getElementById('passwordError');
+            
+            if (confirmPassword && password !== confirmPassword) {
+                errorElement.style.display = 'block';
+            } else {
+                errorElement.style.display = 'none';
+            }
+        });
+
+        // Handle register form
+        document.getElementById('registerForm')?.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('registerBtn');
+            const btnText = btn.querySelector('.btn-text');
+            const btnLoading = btn.querySelector('.btn-loading');
+            
+            // Validate passwords match
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                showNotification('Las contraseñas no coinciden', 'error');
+                document.getElementById('confirmPassword').focus();
+                return;
+            }
+            
+            // Validate password length
+            if (password.length < 8) {
+                showNotification('La contraseña debe tener al menos 8 caracteres', 'error');
+                document.getElementById('password').focus();
+                return;
+            }
+            
+            // Show loading state
+            btn.disabled = true;
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline';
+            
+            try {
+                const userData = {
+                    first_name: document.getElementById('firstName').value,
+                    last_name: document.getElementById('lastName').value,
+                    email: document.getElementById('email').value,
+                    password: password
+                };
+                
+                const result = await register(userData);
+                
+                if (result.access_token) {
+                    showNotification('¡Cuenta creada exitosamente!', 'success');
+                    
+                    // Redirect to home after successful registration
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 1500);
+                }
+            } catch (error) {
+                console.error('Registration error:', error);
+                showNotification(error.message || 'Error al crear la cuenta. Intenta con otro email.', 'error');
+            } finally {
+                btn.disabled = false;
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+            }
+        });
+
+        // Check if already logged in
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+            if (token) {
+                // Optionally redirect to home if already logged in
+                // window.location.href = '/';
+            }
+        });
+    </script>
+</body>
+</html>

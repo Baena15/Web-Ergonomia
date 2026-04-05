@@ -17,7 +17,7 @@ const API_CONFIG = {
 };
 
 // Token JWT almacenado en memoria (en producción usar localStorage con precaución)
-let authToken = localStorage.getItem('authToken') || null;
+let authToken = localStorage.getItem('authToken') || sessionStorage.getItem('authToken') || null;
 let currentUser = null;
 
 // ─── Datos de Productos (Cache) ───────────
@@ -140,6 +140,7 @@ function logout() {
     authToken = null;
     currentUser = null;
     localStorage.removeItem('authToken');
+    sessionStorage.removeItem('authToken');
 }
 
 /**
@@ -219,8 +220,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Cargar usuario si hay token
     if (authToken) {
         await loadUserProfile();
-        updateUIForLoggedUser();
     }
+    updateUIForLoggedUser();
     
     // Cargar productos desde API
     await renderFeaturedProducts();
@@ -231,11 +232,47 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // ─── UI Updates ───────────────────────────
 function updateUIForLoggedUser() {
-    if (!currentUser) return;
+    const navMenu = $('#navMenu');
+    if (!navMenu) return;
     
-    // Aquí puedes actualizar la UI para mostrar que el usuario está logueado
-    // Ejemplo: cambiar "Login" por el nombre del usuario
-    console.log('Usuario logueado:', currentUser.first_name);
+    // Remove existing auth items
+    const existingAuthItem = navMenu.querySelector('.nav-auth-item');
+    if (existingAuthItem) {
+        existingAuthItem.remove();
+    }
+    
+    // Create auth menu item
+    const authItem = document.createElement('li');
+    authItem.className = 'nav-auth-item';
+    
+    if (currentUser) {
+        // User is logged in - show user menu
+        authItem.innerHTML = `
+            <div class="user-menu">
+                <span class="user-name">👤 ${currentUser.first_name}</span>
+                <button class="btn-logout" onclick="handleLogout()">Cerrar sesión</button>
+            </div>
+        `;
+    } else {
+        // User is not logged in - show login link
+        authItem.innerHTML = `<a href="login.html">🔐 Login</a>`;
+    }
+    
+    navMenu.appendChild(authItem);
+}
+
+// Handle logout
+function handleLogout() {
+    logout();
+    showNotification('Sesión cerrada correctamente', 'success');
+    updateUIForLoggedUser();
+    
+    // If on a protected page, redirect to home
+    const protectedPages = ['favoritos.html', 'perfil.html'];
+    const currentPage = window.location.pathname.split('/').pop();
+    if (protectedPages.includes(currentPage)) {
+        window.location.href = '/';
+    }
 }
 
 // ─── Formularios de Autenticación ─────────
