@@ -287,8 +287,7 @@
                     showNotification('¡Cuenta creada exitosamente!', 'success');
                     
                     // Redirect to home after successful registration
-                    const path = window.location.pathname;
-                    const homeUrl = path.includes('/Web-Ergonomia/') ? '/Web-Ergonomia/' : '/';
+                    const homeUrl = getHomeUrl();
                     
                     setTimeout(() => {
                         window.location.href = homeUrl;

@@ -221,12 +221,7 @@
                     
                     // If no redirect param, go to home (handle GitHub Pages subdirectory)
                     if (!redirect) {
-                        const path = window.location.pathname;
-                        if (path.includes('/Web-Ergonomia/')) {
-                            redirect = '/Web-Ergonomia/';
-                        } else {
-                            redirect = '/';
-                        }
+                        redirect = getHomeUrl();
                     }
                     
                     setTimeout(() => {

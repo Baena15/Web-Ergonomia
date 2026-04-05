@@ -278,55 +278,28 @@ function handleLogout() {
 // Get home URL (handles GitHub Pages subdirectory)
 function getHomeUrl() {
     const path = window.location.pathname;
-    // If we're on GitHub Pages (path includes /Web-Ergonomia/)
-    if (path.includes('/Web-Ergonomia/')) {
-        return '/Web-Ergonomia/';
+    const hostname = window.location.hostname;
+    
+    // If we're on GitHub Pages (username.github.io/repo-name/)
+    if (hostname.includes('github.io')) {
+        // Extract the first path segment (repository name)
+        const pathParts = path.split('/').filter(p => p);
+        if (pathParts.length >= 1) {
+            return '/' + pathParts[0] + '/';
+        }
     }
+    
     // Local development or root domain
     return '/';
 }
 
 // ─── Formularios de Autenticación ─────────
+// NOTA: Los handlers de login/registro están en las páginas HTML inline
+// para tener mejor control de UI (loading states, validaciones, etc.)
+// Esta función se mantiene por compatibilidad pero no registra handlers duplicados
 function initAuthForms() {
-    // Login form
-    const loginForm = $('#loginForm');
-    if (loginForm) {
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = loginForm.querySelector('input[name="email"]').value;
-            const password = loginForm.querySelector('input[name="password"]').value;
-            
-            try {
-                await login(email, password);
-                showNotification('¡Bienvenido!', 'success');
-                window.location.href = '/';
-            } catch (error) {
-                showNotification(error.message || 'Error al iniciar sesión', 'error');
-            }
-        });
-    }
-    
-    // Register form
-    const registerForm = $('#registerForm');
-    if (registerForm) {
-        registerForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const userData = {
-                email: registerForm.querySelector('input[name="email"]').value,
-                password: registerForm.querySelector('input[name="password"]').value,
-                first_name: registerForm.querySelector('input[name="first_name"]').value,
-                last_name: registerForm.querySelector('input[name="last_name"]').value
-            };
-            
-            try {
-                await register(userData);
-                showNotification('¡Registro exitoso!', 'success');
-                window.location.href = '/';
-            } catch (error) {
-                showNotification(error.message || 'Error al registrarse', 'error');
-            }
-        });
-    }
+    // Los formularios de auth se manejan inline en login.html y registro.html
+    // para evitar duplicar lógica y tener mejor control de UX
 }
 
 // ─── Notificaciones ───────────────────────
