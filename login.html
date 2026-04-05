@@ -12,7 +12,7 @@
     <!-- Navegación -->
     <nav class="nav" role="navigation" aria-label="Navegación principal">
         <div class="nav-container">
-            <a href="/" class="nav-logo">
+            <a href="./" class="nav-logo">
                 <span class="logo-emoji">💺</span>
                 <span class="logo-text">Ergonomía Pro</span>
             </a>
@@ -24,7 +24,7 @@
             </button>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="/">Inicio</a></li>
+                <li><a href="./">Inicio</a></li>
                 <li><a href="categorias/general.html">Ergonomía General</a></li>
                 <li><a href="categorias/espalda.html">Espalda</a></li>
                 <li><a href="categorias/programadores.html">Programadores</a></li>
@@ -217,7 +217,18 @@
                     
                     // Redirect to home or previous page
                     const urlParams = new URLSearchParams(window.location.search);
-                    const redirect = urlParams.get('redirect') || '/';
+                    let redirect = urlParams.get('redirect');
+                    
+                    // If no redirect param, go to home (handle GitHub Pages subdirectory)
+                    if (!redirect) {
+                        const path = window.location.pathname;
+                        if (path.includes('/Web-Ergonomia/')) {
+                            redirect = '/Web-Ergonomia/';
+                        } else {
+                            redirect = '/';
+                        }
+                    }
+                    
                     setTimeout(() => {
                         window.location.href = redirect;
                     }, 1500);

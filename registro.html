@@ -12,7 +12,7 @@
     <!-- Navegación -->
     <nav class="nav" role="navigation" aria-label="Navegación principal">
         <div class="nav-container">
-            <a href="/" class="nav-logo">
+            <a href="./" class="nav-logo">
                 <span class="logo-emoji">💺</span>
                 <span class="logo-text">Ergonomía Pro</span>
             </a>
@@ -24,7 +24,7 @@
             </button>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="/">Inicio</a></li>
+                <li><a href="./">Inicio</a></li>
                 <li><a href="categorias/general.html">Ergonomía General</a></li>
                 <li><a href="categorias/espalda.html">Espalda</a></li>
                 <li><a href="categorias/programadores.html">Programadores</a></li>
@@ -287,8 +287,11 @@
                     showNotification('¡Cuenta creada exitosamente!', 'success');
                     
                     // Redirect to home after successful registration
+                    const path = window.location.pathname;
+                    const homeUrl = path.includes('/Web-Ergonomia/') ? '/Web-Ergonomia/' : '/';
+                    
                     setTimeout(() => {
-                        window.location.href = '/';
+                        window.location.href = homeUrl;
                     }, 1500);
                 }
             } catch (error) {

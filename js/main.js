@@ -271,8 +271,19 @@ function handleLogout() {
     const protectedPages = ['favoritos.html', 'perfil.html'];
     const currentPage = window.location.pathname.split('/').pop();
     if (protectedPages.includes(currentPage)) {
-        window.location.href = '/';
+        window.location.href = getHomeUrl();
     }
+}
+
+// Get home URL (handles GitHub Pages subdirectory)
+function getHomeUrl() {
+    const path = window.location.pathname;
+    // If we're on GitHub Pages (path includes /Web-Ergonomia/)
+    if (path.includes('/Web-Ergonomia/')) {
+        return '/Web-Ergonomia/';
+    }
+    // Local development or root domain
+    return '/';
 }
 
 // ─── Formularios de Autenticación ─────────
