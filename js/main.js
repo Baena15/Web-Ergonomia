@@ -2,54 +2,311 @@
  * ERGONOMÍA PRO - JavaScript Principal
  */
 
-// ─── Datos de Productos ───────────────────
-const featuredProducts = [
-    {
-        id: 1,
-        name: "Reposapiés Ergonómico Ajustable",
-        category: "ergonomia-general",
-        categoryLabel: "Ergonomía General",
-        description: "Mejora tu postura y circulación con este reposapiés ajustable en altura e inclinación.",
-        price: "29,99 €",
-        image: "🦶",
-        affiliateUrl: "#",
-        rating: 4.5
-    },
-    {
-        id: 2,
-        name: "Silla Ergonómica SIHOO M57",
-        category: "espalda",
-        categoryLabel: "Espalda",
-        description: "Silla de oficina con soporte lumbar ajustable, reposabrazos 3D y respirable.",
-        price: "189,99 €",
-        image: "🪑",
-        affiliateUrl: "#",
-        rating: 4.7
-    },
-    {
-        id: 3,
-        name: "Teclado Ergonómico Logitech ERGO K860",
-        category: "programadores",
-        categoryLabel: "Programadores",
-        description: "Teclado split con reposamanos integrado. Diseñado para reducir la tensión muscular.",
-        price: "119,00 €",
-        image: "⌨️",
-        affiliateUrl: "#",
-        rating: 4.6
+// ─── Configuración API ────────────────────
+const API_CONFIG = {
+    baseUrl: 'https://ergonomia-api-production.up.railway.app',
+    endpoints: {
+        products: '/api/v1/products',
+        auth: {
+            login: '/api/v1/auth/login',
+            register: '/api/v1/auth/register'
+        },
+        favorites: '/api/v1/favorites',
+        me: '/api/v1/me'
     }
-];
+};
+
+// Token JWT almacenado en memoria (en producción usar localStorage con precaución)
+let authToken = localStorage.getItem('authToken') || null;
+let currentUser = null;
+
+// ─── Datos de Productos (Cache) ───────────
+let featuredProducts = [];
 
 // ─── Utilidades ───────────────────────────
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
+// ─── API Functions ────────────────────────
+
+/**
+ * Realiza peticiones a la API
+ */
+async function apiFetch(endpoint, options = {}) {
+    const url = `${API_CONFIG.baseUrl}${endpoint}`;
+    
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+            ...options.headers
+        },
+        ...options
+    };
+    
+    // Agregar token si existe
+    if (authToken) {
+        config.headers['Authorization'] = `Bearer ${authToken}`;
+    }
+    
+    try {
+        const response = await fetch(url, config);
+        
+        if (!response.ok) {
+            const error = await response.json().catch(() => ({ error: 'Error desconocido' }));
+            throw new Error(error.error || `HTTP ${response.status}`);
+        }
+        
+        return await response.json();
+    } catch (error) {
+        console.error('API Error:', error);
+        throw error;
+    }
+}
+
+/**
+ * Obtiene productos de la API
+ */
+async function fetchProducts(filters = {}) {
+    const params = new URLSearchParams();
+    if (filters.category) params.append('category', filters.category);
+    if (filters.limit) params.append('limit', filters.limit);
+    
+    const query = params.toString() ? `?${params.toString()}` : '';
+    return await apiFetch(`${API_CONFIG.endpoints.products}${query}`);
+}
+
+/**
+ * Obtiene un producto por slug
+ */
+async function fetchProductBySlug(slug) {
+    return await apiFetch(`${API_CONFIG.endpoints.products}/${slug}`);
+}
+
+/**
+ * Login de usuario
+ */
+async function login(email, password) {
+    const data = await apiFetch(API_CONFIG.endpoints.auth.login, {
+        method: 'POST',
+        body: JSON.stringify({ email, password })
+    });
+    
+    if (data.access_token) {
+        authToken = data.access_token;
+        localStorage.setItem('authToken', authToken);
+        await loadUserProfile();
+    }
+    
+    return data;
+}
+
+/**
+ * Registro de usuario
+ */
+async function register(userData) {
+    const data = await apiFetch(API_CONFIG.endpoints.auth.register, {
+        method: 'POST',
+        body: JSON.stringify(userData)
+    });
+    
+    if (data.access_token) {
+        authToken = data.access_token;
+        localStorage.setItem('authToken', authToken);
+    }
+    
+    return data;
+}
+
+/**
+ * Carga el perfil del usuario
+ */
+async function loadUserProfile() {
+    if (!authToken) return null;
+    
+    try {
+        currentUser = await apiFetch(API_CONFIG.endpoints.me);
+        return currentUser;
+    } catch (error) {
+        // Token inválido
+        logout();
+        return null;
+    }
+}
+
+/**
+ * Cierra sesión
+ */
+function logout() {
+    authToken = null;
+    currentUser = null;
+    localStorage.removeItem('authToken');
+}
+
+/**
+ * Formatea precio en euros
+ */
+function formatPrice(price, currency = 'EUR') {
+    return new Intl.NumberFormat('es-ES', {
+        style: 'currency',
+        currency: currency
+    }).format(price);
+}
+
+/**
+ * Mapea producto de API a formato del frontend
+ */
+function mapProductFromAPI(apiProduct) {
+    const categoryLabels = {
+        'general': 'Ergonomía General',
+        'espalda': 'Espalda',
+        'programadores': 'Programadores',
+        'minimalista': 'Minimalista'
+    };
+    
+    // Obtener el primer link de afiliado disponible
+    let affiliateUrl = '#';
+    if (apiProduct.affiliate_links) {
+        const links = Object.values(apiProduct.affiliate_links);
+        if (links.length > 0) affiliateUrl = links[0];
+    }
+    
+    return {
+        id: apiProduct.id,
+        name: apiProduct.name,
+        category: apiProduct.category,
+        categoryLabel: categoryLabels[apiProduct.category] || apiProduct.category,
+        description: apiProduct.description,
+        price: formatPrice(apiProduct.price, apiProduct.currency),
+        image: getProductEmoji(apiProduct.category, apiProduct.subcategory),
+        affiliateUrl: affiliateUrl,
+        rating: apiProduct.rating,
+        slug: apiProduct.slug
+    };
+}
+
+/**
+ * Devuelve emoji según categoría
+ */
+function getProductEmoji(category, subcategory) {
+    const emojis = {
+        'sillas': '🪑',
+        'reposapies': '🦶',
+        'cojines-lumbares': '🧘',
+        'teclados': '⌨️',
+        'ratones': '🖱️',
+        'monitores': '🖥️',
+        'soportes': '📐',
+        'escritorios': '🛋️'
+    };
+    
+    if (subcategory && emojis[subcategory]) return emojis[subcategory];
+    
+    const categoryEmojis = {
+        'general': '🦶',
+        'espalda': '🪑',
+        'programadores': '⌨️',
+        'minimalista': '📐'
+    };
+    
+    return categoryEmojis[category] || '📦';
+}
+
 // ─── Inicialización ───────────────────────
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     initNavigation();
-    renderFeaturedProducts();
-    initNewsletterForm();
     initSmoothScroll();
+    
+    // Cargar usuario si hay token
+    if (authToken) {
+        await loadUserProfile();
+        updateUIForLoggedUser();
+    }
+    
+    // Cargar productos desde API
+    await renderFeaturedProducts();
+    
+    initNewsletterForm();
+    initAuthForms();
 });
+
+// ─── UI Updates ───────────────────────────
+function updateUIForLoggedUser() {
+    if (!currentUser) return;
+    
+    // Aquí puedes actualizar la UI para mostrar que el usuario está logueado
+    // Ejemplo: cambiar "Login" por el nombre del usuario
+    console.log('Usuario logueado:', currentUser.first_name);
+}
+
+// ─── Formularios de Autenticación ─────────
+function initAuthForms() {
+    // Login form
+    const loginForm = $('#loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = loginForm.querySelector('input[name="email"]').value;
+            const password = loginForm.querySelector('input[name="password"]').value;
+            
+            try {
+                await login(email, password);
+                showNotification('¡Bienvenido!', 'success');
+                window.location.href = '/';
+            } catch (error) {
+                showNotification(error.message || 'Error al iniciar sesión', 'error');
+            }
+        });
+    }
+    
+    // Register form
+    const registerForm = $('#registerForm');
+    if (registerForm) {
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userData = {
+                email: registerForm.querySelector('input[name="email"]').value,
+                password: registerForm.querySelector('input[name="password"]').value,
+                first_name: registerForm.querySelector('input[name="first_name"]').value,
+                last_name: registerForm.querySelector('input[name="last_name"]').value
+            };
+            
+            try {
+                await register(userData);
+                showNotification('¡Registro exitoso!', 'success');
+                window.location.href = '/';
+            } catch (error) {
+                showNotification(error.message || 'Error al registrarse', 'error');
+            }
+        });
+    }
+}
+
+// ─── Notificaciones ───────────────────────
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        z-index: 10000;
+        background: ${type === 'success' ? 'var(--color-success, #10b981)' : type === 'error' ? 'var(--color-error, #ef4444)' : 'var(--color-primary, #6366f1)'};
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        animation: slideIn 0.3s ease;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
 
 // ─── Navegación Móvil ─────────────────────
 function initNavigation() {
@@ -90,30 +347,58 @@ function initNavigation() {
 }
 
 // ─── Renderizar Productos Destacados ──────
-function renderFeaturedProducts() {
+async function renderFeaturedProducts() {
     const container = $('#featuredProducts');
     if (!container) return;
     
-    container.innerHTML = featuredProducts.map(product => `
-        <article class="product-card" data-category="${product.category}">
-            <div class="product-image">${product.image}</div>
-            <div class="product-content">
-                <span class="product-category">${product.categoryLabel}</span>
-                <h3>${product.name}</h3>
-                <p class="product-description">${product.description}</p>
-                <div class="product-meta">
-                    <span class="product-price">${product.price}</span>
-                    <a href="${product.affiliateUrl}" 
-                       class="btn btn-primary product-button" 
-                       target="_blank" 
-                       rel="noopener sponsored"
-                       onclick="trackAffiliateClick('${product.id}', '${product.name}')">
-                        Ver oferta
-                    </a>
+    // Mostrar estado de carga
+    container.innerHTML = '<div class="loading">Cargando productos...</div>';
+    
+    try {
+        // Cargar desde API
+        const response = await fetchProducts({ limit: 6 });
+        
+        if (response.products && response.products.length > 0) {
+            featuredProducts = response.products.map(mapProductFromAPI);
+        }
+        
+        // Si no hay productos de la API, mostrar mensaje
+        if (featuredProducts.length === 0) {
+            container.innerHTML = '<div class="no-products">No hay productos disponibles</div>';
+            return;
+        }
+        
+        // Renderizar productos
+        container.innerHTML = featuredProducts.map(product => `
+            <article class="product-card" data-category="${product.category}" data-slug="${product.slug}">
+                <div class="product-image">${product.image}</div>
+                <div class="product-content">
+                    <span class="product-category">${product.categoryLabel}</span>
+                    <h3>${product.name}</h3>
+                    <div class="product-rating">${'⭐'.repeat(Math.round(product.rating))} ${product.rating}</div>
+                    <p class="product-description">${product.description}</p>
+                    <div class="product-meta">
+                        <span class="product-price">${product.price}</span>
+                        <a href="${product.affiliateUrl}" 
+                           class="btn btn-primary product-button" 
+                           target="_blank" 
+                           rel="noopener sponsored"
+                           onclick="trackAffiliateClick('${product.id}', '${product.name}')">
+                            Ver oferta
+                        </a>
+                    </div>
                 </div>
+            </article>
+        `).join('');
+        
+    } catch (error) {
+        console.error('Error cargando productos:', error);
+        container.innerHTML = `
+            <div class="error-message">
+                <p>Error al cargar productos. <button onclick="renderFeaturedProducts()" class="btn btn-secondary">Reintentar</button></p>
             </div>
-        </article>
-    `).join('');
+        `;
+    }
 }
 
 // ─── Formulario Newsletter ────────────────

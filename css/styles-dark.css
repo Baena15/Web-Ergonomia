@@ -1152,3 +1152,190 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.75rem;
   }
 }
+
+
+/* ============================================
+   API & DYNAMIC CONTENT STYLES
+   ============================================ */
+
+/* ─── Loading States ─────────────────────── */
+.loading {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.loading::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  border: 2px solid var(--neon-violet);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.no-products,
+.error-message {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border-radius: 1rem;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.error-message {
+  border-color: var(--neon-pink);
+  background: rgba(236, 72, 153, 0.1);
+}
+
+/* ─── Product Rating ─────────────────────── */
+.product-rating {
+  color: #fbbf24;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.product-rating::after {
+  content: attr(data-rating);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* ─── Notifications ──────────────────────── */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  z-index: 10000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.notification-success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.notification-error {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.notification-info {
+  background: linear-gradient(135deg, var(--neon-violet) 0%, var(--neon-violet-dark) 100%);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* ─── Auth Forms ─────────────────────────── */
+.auth-form {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--bg-card);
+  border-radius: 1rem;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--neon-violet);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg-primary);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--neon-violet);
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+}
+
+/* ─── User Menu ──────────────────────────── */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-name {
+  color: var(--neon-cyan);
+  font-weight: 600;
+}
+
+/* ─── Animations for Product Cards ───────── */
+.product-card {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.2s; }
+.product-card:nth-child(3) { animation-delay: 0.3s; }
+.product-card:nth-child(4) { animation-delay: 0.4s; }
+.product-card:nth-child(5) { animation-delay: 0.5s; }
+.product-card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
